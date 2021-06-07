@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .filter-links {
+            text-align: center;
+        }
+        
+        .filter-links li {
+            display: inline-block;
+            list-style: none;
+            padding: .5rem 1rem;
+            color: #000;
+            font-family: sans-serif;
+            margin: .5rem;
+            border: 3px solid rgb(32, 184, 133);        }
+        
+        .filter-links li.active {
+            background: rgb(32, 184, 133);
+        }
+        
+        .filter-items {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 960px;
+            margin: auto;
+        }
+        
+        .filter-items li {
+            flex-basis: 33%;
+            list-style: none;
+        }
+        
+        .filter-items li img {
+            width: 100%;
+            display: block;
+        }
+        
+        .zoomOut {
+            animation: zoomOut .6s ease-out;
+        }
+        
+        @keyframes zoomOut {
+            from {
+                transform: scale(.5);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+        
+        .easeUp {
+            animation: easeUp .6s ease-out;
+        }
+        
+        @keyframes easeUp {
+            from {
+                opacity: .5;
+                transform: translateY(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0px);
+            }
+        }
+        
+        .easeDown {
+            animation: easeDown .6s ease-out;
+        }
+        
+        @keyframes easeDown {
+            from {
+                opacity: .5;
+                transform: translateY(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0px);
+            }
+        }
+        
+        .visibleOn {
+            animation: visibleOn .6s ease;
+        }
+        
+        @keyframes visibleOn {
+            from {
+                opacity: 0;
+                visibility: hidden;
+            }
+            to {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+        .blurry {
+            animation: blurry .6s ease;
+        }
+        
+        @keyframes blurry {
+            from {
+               filter: blur(10px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <ul class="filter-links">
+            <li>all</li>
+            <li>logo</li>
+            <li>brand</li>
+            <li>mockup</li>
+            <li>Design</li>
+        </ul>
+
+        <ul class="filter-items">
+            <li data-filter="brand"><img src="../3.jpg" alt=""></li>
+
+            <li data-filter="mockup"><img src="../2.jpg" alt=""></li>
+            <li data-filter="logo"><img src="../1.jpg" alt=""></li>
+            <li data-filter="brand"><img src="../3.jpg" alt=""></li>
+            <li data-filter="mockup"><img src="../2.jpg" alt=""></li>
+            <li data-filter="logo"><img src="../1.jpg" alt=""></li>
+            <li data-filter="brand"><img src="../3.jpg" alt=""></li>
+
+            <li data-filter="design"><img src="../4.jpg" alt=""></li>
+            <li data-filter="design"><img src="../5.jpg" alt=""></li>
+            <li data-filter="logo"><img src="../6.jpg" alt=""></li>
+        </ul>
+    </section>
+    <script>
+// function opFilter(target, item, anime) {
+//   'use strict';
+//   let Target = document.querySelectorAll(target),
+//     Item = document.querySelectorAll(item);
+//   Target.forEach(li => {
+//     li.onclick = function() {
+//       Target.forEach(li => {
+//         li.className = "";
+//       });
+//       li.className = "active";
+//       const value = li.textContent;
+//       Item.forEach(e => {
+//         e.classList.add(anime);
+//         e.style.display = 'none';
+//         if (e.getAttribute('data-filter') == value.toLowerCase() || value == "all") {
+//           e.style.display = 'block';
+//         }
+//       });
+//     };
+//   });
+// }
+// opFilter('.filter-links li', '.filter-items li', 'zoomOut');
+let option = "blurry";
+function opFilter(target,item,anime){'use strict';let Target=document.querySelectorAll(target),Item=document.querySelectorAll(item);Target.forEach(li=>{li.onclick=function(){Target.forEach(li=>{li.className="";});li.className="active";const value=li.textContent;Item.forEach(e=>{e.classList.add(anime);e.style.display='none';if(e.getAttribute('data-filter')==value.toLowerCase()||value=="all"){e.style.display='block';}});};});}
+opFilter('.filter-links li','.filter-items li', option);
+    </script>
+
+
+</body>
+
+</html>
