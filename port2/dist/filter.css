@@ -1,0 +1,67 @@
+
+        .zoomOut {
+            animation: zoomOut .6s ease-out;
+        }
+        
+        @keyframes zoomOut {
+            from {
+                transform: scale(.5);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+        
+        .easeUp {
+            animation: easeUp .6s ease-out;
+        }
+        
+        @keyframes easeUp {
+            from {
+                opacity: .5;
+                transform: translateY(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0px);
+            }
+        }
+        
+        .easeDown {
+            animation: easeDown .6s ease-out;
+        }
+        
+        @keyframes easeDown {
+            from {
+                opacity: .5;
+                transform: translateY(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0px);
+            }
+        }
+        
+        .visibleOn {
+            animation: visibleOn .6s ease;
+        }
+        
+        @keyframes visibleOn {
+            from {
+                opacity: 0;
+                visibility: hidden;
+            }
+            to {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+        .blurry {
+            animation: blurry .6s ease;
+        }
+        
+        @keyframes blurry {
+            from {
+               filter: blur(10px);
+            }
+        }
